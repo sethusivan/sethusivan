@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" role="img" aria-label="Telemetry pipeline: sources through the Wazuh platform into SOC operations, with detection tuning feeding back">
+  <title>How the telemetry pipeline fits together</title>
+
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070B10"/>
+      <stop offset="100%" stop-color="#0A1A24"/>
+    </linearGradient>
+    <linearGradient id="pacc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <pattern id="pgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 L0 0 0 40" fill="none" stroke="#17323F" stroke-width="0.5" opacity="0.45"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2DD4BF"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#F59E0B"/>
+    </marker>
+    <clipPath id="pframe"><rect width="1200" height="440" rx="14"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#pframe)" font-family="'JetBrains Mono','SFMono-Regular',Consolas,monospace">
+    <rect width="1200" height="440" fill="url(#pbg)"/>
+    <rect width="1200" height="440" fill="url(#pgrid)"/>
+
+    <text x="40" y="44" font-size="15" fill="#F1F5F9" letter-spacing="3" font-weight="700">TELEMETRY PIPELINE</text>
+    <text x="40" y="66" font-size="11.5" fill="#64748B" letter-spacing="1">from raw events to an answer somebody can act on</text>
+
+    <!-- column 1: sources -->
+    <text x="40" y="112" font-size="11" fill="#2DD4BF" letter-spacing="3">SOURCES</text>
+    <g fill="#0C1A24" stroke="#1F4F63">
+      <rect x="40" y="126" width="210" height="38" rx="7"/>
+      <rect x="40" y="172" width="210" height="38" rx="7"/>
+      <rect x="40" y="218" width="210" height="38" rx="7"/>
+      <rect x="40" y="264" width="210" height="38" rx="7"/>
+      <rect x="40" y="310" width="210" height="38" rx="7"/>
+    </g>
+    <g font-size="11.5" fill="#CBD5E1">
+      <text x="58" y="150">AWS &#183; CloudTrail / GuardDuty</text>
+      <text x="58" y="196">Windows &#183; Sysmon, Security</text>
+      <text x="58" y="242">Linux &#183; auditd, syslog</text>
+      <text x="58" y="288">Firewall &#183; network flow</text>
+      <text x="58" y="334">Applications &#183; auth logs</text>
+    </g>
+
+    <!-- links into platform -->
+    <g stroke="#1F4F63" stroke-width="1.2" fill="none">
+      <path d="M250 145 C295 145 295 215 330 215"/>
+      <path d="M250 191 C295 191 295 215 330 215"/>
+      <path d="M250 237 L330 221"/>
+      <path d="M250 283 C295 283 295 225 330 225"/>
+      <path d="M250 329 C295 329 295 230 330 230"/>
+    </g>
+    <g stroke="url(#pacc)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.95">
+      <path d="M250 145 C295 145 295 215 330 215" stroke-dasharray="10 120">
+        <animate attributeName="stroke-dashoffset" from="130" to="0" dur="2.4s" repeatCount="indefinite"/>
+      </path>
+      <path d="M250 191 C295 191 295 215 330 215" stroke-dasharray="10 120">
+        <animate attributeName="stroke-dashoffset" from="130" to="0" dur="2.9s" begin="0.5s" repeatCount="indefinite"/>
+      </path>
+      <path d="M250 283 C295 283 295 225 330 225" stroke-dasharray="10 120">
+        <animate attributeName="stroke-dashoffset" from="130" to="0" dur="3.2s" begin="1s" repeatCount="indefinite"/>
+      </path>
+      <path d="M250 329 C295 329 295 230 330 230" stroke-dasharray="10 120">
+        <animate attributeName="stroke-dashoffset" from="130" to="0" dur="2.7s" begin="1.6s" repeatCount="indefinite"/>
+      </path>
+    </g>
+
+    <!-- column 2: wazuh platform -->
+    <rect x="330" y="100" width="440" height="252" rx="10" fill="#081520" stroke="#2DD4BF" stroke-opacity="0.45"/>
+    <text x="352" y="126" font-size="11" fill="#2DD4BF" letter-spacing="3">WAZUH PLATFORM</text>
+    <text x="352" y="146" font-size="10.5" fill="#64748B">keeping this stable is the job nobody sees</text>
+
+    <g fill="#0C1A24" stroke="#1F4F63">
+      <rect x="352" y="162" width="190" height="42" rx="7"/>
+      <rect x="352" y="216" width="190" height="42" rx="7"/>
+      <rect x="352" y="270" width="190" height="42" rx="7"/>
+      <rect x="560" y="162" width="190" height="42" rx="7"/>
+      <rect x="560" y="216" width="190" height="42" rx="7"/>
+      <rect x="560" y="270" width="190" height="42" rx="7"/>
+    </g>
+    <g font-size="11" fill="#CBD5E1">
+      <text x="368" y="182">Agents</text>
+      <text x="368" y="236">Manager &#183; cluster</text>
+      <text x="368" y="290">Decoders &#183; rules</text>
+      <text x="576" y="182">Log ingestion</text>
+      <text x="576" y="236">Indexer</text>
+      <text x="576" y="290">Dashboard</text>
+    </g>
+    <g font-size="9.5" fill="#64748B">
+      <text x="368" y="196">enrollment, connectivity</text>
+      <text x="368" y="250">failover, node health</text>
+      <text x="368" y="304">parsing, normalisation</text>
+      <text x="576" y="196">queue depth, drops</text>
+      <text x="576" y="250">shards, retention</text>
+      <text x="576" y="304">availability, latency</text>
+    </g>
+
+    <text x="352" y="336" font-size="10" fill="#F59E0B" letter-spacing="1">&#9679; monitored for silent ingestion failure</text>
+
+    <!-- platform to SOC -->
+    <path d="M770 226 L828 226" stroke="url(#pacc)" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+    <!-- column 3: SOC -->
+    <text x="840" y="112" font-size="11" fill="#2DD4BF" letter-spacing="3">SOC OPERATIONS</text>
+    <g fill="#0C1A24" stroke="#1F4F63">
+      <rect x="840" y="126" width="320" height="52" rx="7"/>
+      <rect x="840" y="190" width="320" height="52" rx="7"/>
+      <rect x="840" y="254" width="320" height="52" rx="7"/>
+      <rect x="840" y="318" width="320" height="52" rx="7"/>
+    </g>
+    <g font-size="11.5" fill="#CBD5E1">
+      <text x="858" y="148">Triage</text>
+      <text x="858" y="212">Investigate &amp; hunt</text>
+      <text x="858" y="276">Scope &amp; contain</text>
+      <text x="858" y="340">Root cause</text>
+    </g>
+    <g font-size="9.5" fill="#64748B">
+      <text x="858" y="165">true positive or noise, with context</text>
+      <text x="858" y="229">correlate telemetry, rebuild the timeline</text>
+      <text x="858" y="293">blast radius, impact, response actions</text>
+      <text x="858" y="357">how it got in, what it touched</text>
+    </g>
+
+    <g stroke="#1F4F63" stroke-width="1.2" fill="none" marker-end="url(#arrow)">
+      <path d="M1000 178 L1000 186"/>
+      <path d="M1000 242 L1000 250"/>
+      <path d="M1000 306 L1000 314"/>
+    </g>
+
+    <!-- feedback loop -->
+    <path d="M840 344 C700 410 560 410 460 380 L460 356" fill="none" stroke="#F59E0B" stroke-width="1.6"
+          stroke-dasharray="6 6" marker-end="url(#arrowAmber)" opacity="0.9"/>
+    <rect x="434" y="391" width="324" height="20" rx="6" fill="#070B10"/>
+    <text x="596" y="405" font-size="10.5" fill="#F59E0B" letter-spacing="1" text-anchor="middle">detection tuning &#183; new use cases &#183; less noise</text>
+
+    <rect x="0.5" y="0.5" width="1199" height="439" rx="14" fill="none" stroke="#1F4F63"/>
+  </g>
+</svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340" role="img" aria-label="Role split between cloud security engineering and SOC operations, with a timeline of roles">
+  <title>Where the time goes, and how the role has moved</title>
+
+  <defs>
+    <linearGradient id="fbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070B10"/>
+      <stop offset="100%" stop-color="#0A1A24"/>
+    </linearGradient>
+    <linearGradient id="barEng" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="barSoc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7C6AF5"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <pattern id="fgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 L0 0 0 40" fill="none" stroke="#17323F" stroke-width="0.5" opacity="0.45"/>
+    </pattern>
+    <clipPath id="fframe"><rect width="1200" height="340" rx="14"/></clipPath>
+    <clipPath id="barClip"><rect x="40" y="118" width="1120" height="44" rx="8"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#fframe)" font-family="'JetBrains Mono','SFMono-Regular',Consolas,monospace">
+    <rect width="1200" height="340" fill="url(#fbg)"/>
+    <rect width="1200" height="340" fill="url(#fgrid)"/>
+
+    <text x="40" y="46" font-size="15" fill="#F1F5F9" letter-spacing="3" font-weight="700">WHERE THE TIME GOES</text>
+    <text x="40" y="68" font-size="11.5" fill="#64748B" letter-spacing="1">engineering first, operations close behind &#8212; the two feed each other</text>
+
+    <!-- split bar -->
+    <g clip-path="url(#barClip)">
+      <rect x="40" y="118" width="1120" height="44" fill="#0C1A24"/>
+      <rect x="40" y="118" width="784" height="44" fill="url(#barEng)" opacity="0.92">
+        <animate attributeName="width" from="0" to="784" dur="1.4s" fill="freeze"/>
+      </rect>
+      <rect x="824" y="118" width="336" height="44" fill="url(#barSoc)" opacity="0.92">
+        <animate attributeName="width" from="0" to="336" dur="1.1s" begin="1.2s" fill="freeze"/>
+      </rect>
+    </g>
+    <rect x="40" y="118" width="1120" height="44" rx="8" fill="none" stroke="#1F4F63"/>
+
+    <text x="60" y="146" font-size="13" font-weight="700" fill="#042F2E">70%&#160;&#160;CLOUD SECURITY &amp; ENGINEERING</text>
+    <text x="844" y="146" font-size="13" font-weight="700" fill="#1E1B4B">30%&#160;&#160;SOC SUPPORT &amp; IR</text>
+
+    <!-- detail rows under each side -->
+    <g font-size="10.5" fill="#64748B">
+      <text x="40" y="186">AWS architecture &#183; secure configuration &#183; platform reliability &#183; Wazuh stability &#183; detection engineering</text>
+      <text x="824" y="186">L2 investigation &#183; threat hunting &#183; sandbox analysis</text>
+    </g>
+
+    <!-- divider -->
+    <line x1="40" y1="212" x2="1160" y2="212" stroke="#17323F"/>
+
+    <!-- timeline -->
+    <text x="40" y="244" font-size="11" fill="#2DD4BF" letter-spacing="3">PROGRESSION</text>
+
+    <line x1="150" y1="286" x2="1080" y2="286" stroke="#1F4F63" stroke-width="2"/>
+    <line x1="150" y1="286" x2="1080" y2="286" stroke="url(#barEng)" stroke-width="2" stroke-dasharray="930">
+      <animate attributeName="stroke-dashoffset" from="930" to="0" dur="2s" fill="freeze"/>
+    </line>
+
+    <!-- node 1 -->
+    <circle cx="150" cy="286" r="8" fill="#0B1620" stroke="#2DD4BF" stroke-width="2"/>
+    <circle cx="150" cy="286" r="3.5" fill="#2DD4BF"/>
+    <text x="150" y="266" font-size="11.5" fill="#CBD5E1" text-anchor="middle">Jan 2026</text>
+    <text x="150" y="312" font-size="11" fill="#94A3B8" text-anchor="middle">Cyber Threat Analyst</text>
+    <text x="150" y="328" font-size="9.5" fill="#64748B" text-anchor="middle">24/7 multi-client SOC</text>
+
+    <!-- node 2 -->
+    <circle cx="615" cy="286" r="8" fill="#0B1620" stroke="#38BDF8" stroke-width="2"/>
+    <circle cx="615" cy="286" r="3.5" fill="#38BDF8"/>
+    <text x="615" y="266" font-size="11.5" fill="#CBD5E1" text-anchor="middle">Sep 2026</text>
+    <text x="615" y="312" font-size="11" fill="#94A3B8" text-anchor="middle">Cyber Security Engineer</text>
+    <text x="615" y="328" font-size="9.5" fill="#64748B" text-anchor="middle">cloud security &amp; platform engineering</text>
+
+    <!-- node 3: now -->
+    <circle cx="1080" cy="286" r="8" fill="#0B1620" stroke="#2DD4BF" stroke-width="2"/>
+    <circle cx="1080" cy="286" r="3.5" fill="#2DD4BF">
+      <animate attributeName="opacity" values="1;0.2;1" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1080" cy="286" r="8" fill="none" stroke="#2DD4BF" stroke-width="1.4">
+      <animate attributeName="r" from="8" to="26" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" from="0.8" to="0" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1080" y="266" font-size="11.5" fill="#CBD5E1" text-anchor="middle">now</text>
+    <text x="1080" y="312" font-size="11" fill="#94A3B8" text-anchor="middle">building in the open</text>
+
+    <rect x="0.5" y="0.5" width="1199" height="339" rx="14" fill="none" stroke="#1F4F63"/>
+  </g>
+</svg>
